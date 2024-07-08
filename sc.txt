@@ -1,0 +1,125 @@
+
+ 
+1)	Write a python program to implement ‘UNION OPERATION’ on 2 datasets.
+
+
+A = {"X1": 0.8, "X2": 0.9, "X3": 0.6}
+B = {"X1": 0.7, "X2": 0.8, "X3": 0.5} Y = {}
+
+print("This is set A", A) print("This is set B", B)
+
+for A_key, B_key in zip(A, B): A_value = A[A_key] B_value = B[B_key]
+if A_value > B_value:
+Y[A_key] = A_value else:
+Y[B_key] = B_value print(Y)
+
+
+
+
+
+
+ 
+OUTPUT
+ 
+
+This is set A {'X1': 0.8, 'X2': 0.9, 'X3': 0.6}
+This is set B {'X1': 0.7, 'X2': 0.8, 'X3': 0.5}
+{'X1': 0.8, 'X2': 0.9, 'X3': 0.6}
+ 
+2)	Write a python program to implement ‘INTERSECTION OPERATION’ on 2 datasets.
+
+
+A = {"X1": 0.8, "X2": 0.9, "X3": 0.6}
+B = {"X1": 0.7, "X2": 0.8, "X3": 0.5} Y = {}
+
+print("This is set A", A) print("This is set B", B)
+
+for A_key, B_key in zip(A, B): A_value = A[A_key] B_value = B[B_key]
+if A_value < B_value:
+Y[A_key] = A_value else:
+Y[B_key] = B_value print(Y)
+
+
+
+
+
+
+
+
+ 
+OUTPUT
+ 
+
+This is set A {'X1': 0.8, 'X2': 0.9, 'X3': 0.6}
+This is set B {'X1': 0.7, 'X2': 0.8, 'X3': 0.5}
+{'X1': 0.7, 'X2': 0.8, 'X3': 0.5}
+ 
+3)	Write a python program to implement “NOT ‘A’ / COMPLEMENT OF A” on datasets.
+
+
+A = {"X1": 0.8, "X2": 0.9, "X3": 0.6}
+B = {"X1": 0.7, "X2": 0.8, "X3": 0.5} Y = {}
+
+print("This is set A", A) print("This is set B", B)
+
+for A_key in A:
+Y[A_key] = 1-A_value print(Y)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+OUTPUT
+ 
+
+This is set A {'X1': 0.8, 'X2': 0.9, 'X3': 0.6}
+This is set B {'X1': 0.7, 'X2': 0.8, 'X3': 0.5}
+{'X1': 0.4, 'X2': 0.4, 'X3': 0.4}
+ 
+4)	Write a python program to implement “DE-MORGAN’S LAW”.
+
+
+A = [0.9, 0.6, 0.4]
+B = [0.7, 0.8, 0.5]
+def fuzzy_not(mu): return 1 - mu
+def fuzzy_AND(mu1, mu2): return min(mu1, mu2)
+def fuzzy_OR(mu1, mu2): return max(mu1, mu2)
+def fuzzy_demorgan(mu_A, mu_B):
+return fuzzy_not(fuzzy_AND(mu_A, mu_B)) == fuzzy_OR(fuzzy_not(mu_A), fuzzy_not(mu_B))
+for mu_A in A: for mu_B in B:
+print(f"fuzzy_demorgan({mu_A}, {mu_B}) =", fuzzy_demorgan(mu_A, mu_B))
+
+
+ 
+OUTPUT
+ 
+
+fuzzy_demorgan(0.9, 0.7) = True fuzzy_demorgan(0.9, 0.8) = True fuzzy_demorgan(0.9, 0.5) = True fuzzy_demorgan(0.6, 0.7) = True fuzzy_demorgan(0.6, 0.8) = True fuzzy_demorgan(0.6, 0.5) = True fuzzy_demorgan(0.4, 0.7) = True fuzzy_demorgan(0.4, 0.8) = True fuzzy_demorgan(0.4, 0.5) = True
+ 
+5)	Write a python program to visualize “FUZZY LOGIC”.
+
+
+!pip install scikit-fuzzy import numpy as np import skfuzzy as fuzz
+from matplotlib import pyplot as plt a=np.arange(11) fa=fuzz.trimf(a,[0,5,10])
+print(a) print(fa) plt.plot(a,fa)
+
+
+
+
+OUTPUT
+
+
+
+
+
